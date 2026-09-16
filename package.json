@@ -1,7 +1,7 @@
 {
   "name": "birthday-card-app",
   "version": "1.0.0",
-  "description": "Create and share cutesy, interactive digital birthday cards.",
+  "description": "Create and share cutesy, interactive digital birthday cards that never expire.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -10,7 +10,10 @@
     "node": ">=18.0.0"
   },
   "dependencies": {
+    "cloudinary": "^2.5.1",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "mongodb": "^6.9.0",
     "multer": "^1.4.5-lts.1",
     "uuid": "^9.0.1"
   }

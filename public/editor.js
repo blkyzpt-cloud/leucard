@@ -6,6 +6,8 @@ const DEFAULT_FLOWERS = [
   { emoji: '💐', name: 'Lily', message: 'Wishing you a year full of happiness.' },
 ];
 
+const MAX_IMAGES = 15;
+
 let selectedTheme = 'bubblegum';
 let selectedImages = [];
 let selectedMusic = null;
@@ -24,7 +26,14 @@ const imageInput = document.getElementById('imageInput');
 const imagePreview = document.getElementById('imagePreview');
 
 imageInput.addEventListener('change', () => {
-  selectedImages = Array.from(imageInput.files).slice(0, 6);
+  const chosen = Array.from(imageInput.files);
+  if (chosen.length > MAX_IMAGES) {
+    errorText.textContent = `You can upload up to ${MAX_IMAGES} photos — the first ${MAX_IMAGES} were kept.`;
+    errorText.style.display = 'block';
+  } else {
+    errorText.style.display = 'none';
+  }
+  selectedImages = chosen.slice(0, MAX_IMAGES);
   imagePreview.innerHTML = '';
   selectedImages.forEach((file) => {
     const reader = new FileReader();

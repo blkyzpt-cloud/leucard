@@ -15,16 +15,19 @@ function getCardId() {
 function spawnParticles(theme) {
   const field = document.getElementById('particleField');
   const set = PARTICLES_BY_THEME[theme] || PARTICLES_BY_THEME.bubblegum;
-  const count = 22;
+  const count = 34;
   for (let i = 0; i < count; i++) {
     const span = document.createElement('span');
     span.className = 'particle';
     span.textContent = set[Math.floor(Math.random() * set.length)];
     span.style.left = `${Math.random() * 100}%`;
-    span.style.fontSize = `${14 + Math.random() * 16}px`;
-    const duration = 9 + Math.random() * 10;
+    span.style.fontSize = `${16 + Math.random() * 22}px`;
+    const duration = 10 + Math.random() * 12;
     span.style.animationDuration = `${duration}s`;
-    span.style.animationDelay = `${Math.random() * duration}s`;
+    // Negative delay starts each particle partway through its animation so the
+    // sky is already full of movement on load, instead of everyone waiting
+    // out a positive delay invisibly first.
+    span.style.animationDelay = `-${Math.random() * duration}s`;
     field.appendChild(span);
   }
 }
