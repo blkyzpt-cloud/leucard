@@ -76,13 +76,41 @@ function renderCard(card) {
   // Gallery
   if (card.images && card.images.length) {
     const gallery = document.getElementById('gallery');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
     card.images.forEach((src) => {
+      const polaroid = document.createElement('div');
+      polaroid.className = 'polaroid';
+      const tilt = (Math.random() * 10 - 5).toFixed(1);
+      polaroid.style.setProperty('--tilt', `${tilt}deg`);
+
+      const pin = document.createElement('div');
+      pin.className = 'pin';
+
       const img = document.createElement('img');
       img.src = src;
       img.alt = 'shared memory';
-      gallery.appendChild(img);
+      img.addEventListener('click', () => {
+        lightboxImg.src = src;
+        lightbox.classList.add('show');
+      });
+
+      polaroid.appendChild(pin);
+      polaroid.appendChild(img);
+      gallery.appendChild(polaroid);
+    });
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('show');
+      lightboxImg.src = '';
     });
     document.getElementById('galleryPanel').hidden = false;
+
+    // Arrow buttons scroll the strip by roughly one photo's width.
+    const prevBtn = document.getElementById('galleryPrev');
+    const nextBtn = document.getElementById('galleryNext');
+    const scrollStep = () => (gallery.firstElementChild ? gallery.firstElementChild.offsetWidth + 26 : 176);
+    prevBtn.addEventListener('click', () => gallery.scrollBy({ left: -scrollStep(), behavior: 'smooth' }));
+    nextBtn.addEventListener('click', () => gallery.scrollBy({ left: scrollStep(), behavior: 'smooth' }));
   }
 
   // Music

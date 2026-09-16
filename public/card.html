@@ -44,7 +44,12 @@
 
   <section class="card-panel gallery-panel" id="galleryPanel" hidden>
     <h2>A few favorites</h2>
-    <div class="gallery" id="gallery"></div>
+    <p class="hint">Swipe to see more</p>
+    <div class="gallery-wrap">
+      <button class="gallery-nav prev" id="galleryPrev" type="button" aria-label="Previous photo">&#8249;</button>
+      <div class="gallery" id="gallery"></div>
+      <button class="gallery-nav next" id="galleryNext" type="button" aria-label="Next photo">&#8250;</button>
+    </div>
   </section>
 
   <section class="card-panel bouquet-panel">
@@ -70,6 +75,11 @@
 </div>
 
 <p class="footer-note" id="footerNote" hidden>made just for you</p>
+
+<div class="lightbox" id="lightbox">
+  <span class="close-hint">&times;</span>
+  <img id="lightboxImg" src="" alt="enlarged photo">
+</div>
 
 <audio id="bgMusic" loop></audio>
 
