@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Craft a Birthday Card</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="hero">
+  <span class="torn-tape"></span>
+  <span class="kicker">🎈 birthday card studio</span>
+  <h1>Craft a birthday card worth opening.</h1>
+  <p class="sub">Pick a theme, add your photos and a song, plant a bouquet of kind words, and light a cake she gets to blow out herself. You'll get one link to send.</p>
+</header>
+
+<form id="card-form" class="wrap">
+
+  <div class="panel">
+    <span class="step">Step 1</span>
+    <h2>Choose a theme</h2>
+    <p class="hint">This sets the colors and mood of the finished card.</p>
+    <div class="theme-grid" id="theme-grid">
+      <button type="button" class="theme-swatch selected" data-theme="bubblegum">
+        <div class="preview bubblegum"></div>
+        <div class="name">Bubblegum Pop</div>
+      </button>
+      <button type="button" class="theme-swatch" data-theme="sunset">
+        <div class="preview sunset"></div>
+        <div class="name">Golden Sunset</div>
+      </button>
+      <button type="button" class="theme-swatch" data-theme="galaxy">
+        <div class="preview galaxy"></div>
+        <div class="name">Midnight Galaxy</div>
+      </button>
+      <button type="button" class="theme-swatch" data-theme="garden">
+        <div class="preview garden"></div>
+        <div class="name">Garden Party</div>
+      </button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <span class="step">Step 2</span>
+    <h2>Write the message</h2>
+    <label class="field-label" for="recipientName">Who is this for?</label>
+    <input type="text" id="recipientName" placeholder="e.g. Mia" maxlength="60" required>
+
+    <label class="field-label" for="message">Your birthday message</label>
+    <textarea id="message" placeholder="Write something only she would get..." maxlength="1000"></textarea>
+
+    <label class="field-label" for="senderName">From (optional)</label>
+    <input type="text" id="senderName" placeholder="e.g. Your best friend" maxlength="60">
+  </div>
+
+  <div class="panel">
+    <span class="step">Step 3</span>
+    <h2>Add photos</h2>
+    <p class="hint">Up to 6 images. They'll appear in a little gallery on the card.</p>
+    <label class="upload-box" id="image-upload-box">
+      <span class="icon">🖼️</span><br>
+      Tap to choose photos
+      <input type="file" id="imageInput" accept="image/*" multiple>
+    </label>
+    <div class="thumb-row" id="imagePreview"></div>
+  </div>
+
+  <div class="panel">
+    <span class="step">Step 4</span>
+    <h2>Add a song</h2>
+    <p class="hint">It plays automatically when she opens the envelope.</p>
+    <label class="upload-box" id="music-upload-box">
+      <span class="icon">🎵</span><br>
+      Tap to choose a song
+      <input type="file" id="musicInput" accept="audio/*">
+    </label>
+    <div class="music-name" id="musicName"></div>
+  </div>
+
+  <div class="panel">
+    <span class="step">Step 5</span>
+    <h2>Plant a bouquet</h2>
+    <p class="hint">Each flower reveals a message when she taps it. Edit them or keep the defaults.</p>
+    <div id="flower-editor"></div>
+  </div>
+
+  <div class="panel">
+    <span class="step">Step 6</span>
+    <h2>Light the cake</h2>
+    <p class="hint">Choose how many candles she gets to blow out.</p>
+    <div class="candle-control">
+      <input type="range" id="candleRange" min="1" max="12" value="5">
+      <span class="candle-count" id="candleCount">5</span>
+    </div>
+  </div>
+
+  <div class="submit-row">
+    <button type="submit" class="btn" id="submitBtn">Create card 🎂</button>
+  </div>
+  <p class="error-text" id="errorText"></p>
+
+  <div class="panel" id="result-panel">
+    <h2>Your card is ready! 🎉</h2>
+    <p class="hint">Copy this link and send it to her.</p>
+    <div class="link-box">
+      <input type="text" id="shareLink" readonly>
+      <button type="button" class="btn secondary" id="copyBtn">Copy link</button>
+      <a class="btn" id="previewLink" target="_blank">Preview card</a>
+    </div>
+  </div>
+
+</form>
+
+<footer class="note">Made with care, one envelope at a time.</footer>
+
+<script src="/editor.js"></script>
+</body>
+</html>

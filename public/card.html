@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A birthday card for you 🎈</title>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/themes.css">
+<link rel="stylesheet" href="/card.css">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+</head>
+<body class="card-view theme-bubblegum" id="pageBody">
+
+<div class="particle-field" id="particleField"></div>
+
+<button class="mute-btn" id="muteBtn" title="Mute music" hidden>🔊</button>
+
+<div class="stage" id="stage">
+  <div class="envelope-shell">
+    <div class="envelope" id="envelope">
+      <div class="back"></div>
+      <div class="pocket"></div>
+      <div class="letter">💌</div>
+      <div class="flap"></div>
+    </div>
+    <p class="envelope-label">To: <span id="envName">...</span></p>
+    <p class="tap-hint">Tap the envelope to open</p>
+  </div>
+</div>
+
+<div class="content" id="content" hidden>
+
+  <section class="card-panel">
+    <h1 id="greetingName">Happy Birthday!</h1>
+    <p class="message-text" id="messageText"></p>
+    <p class="from" id="fromLine"></p>
+  </section>
+
+  <section class="card-panel gallery-panel" id="galleryPanel" hidden>
+    <h2>A few favorites</h2>
+    <div class="gallery" id="gallery"></div>
+  </section>
+
+  <section class="card-panel bouquet-panel">
+    <h2>A little bouquet</h2>
+    <p class="hint">Tap each flower for something to hold onto.</p>
+    <div class="bouquet" id="bouquet"></div>
+    <div class="flower-message" id="flowerMessage"></div>
+  </section>
+
+  <section class="card-panel cake-panel">
+    <h2>Make a wish</h2>
+    <p class="hint">Blow out every candle, one tap at a time.</p>
+    <div class="cake-scene">
+      <div class="candles" id="candles"></div>
+      <div class="cake-body">
+        <div class="cake-tier top"><div class="drip"></div></div>
+        <div class="cake-tier bottom"></div>
+      </div>
+    </div>
+    <p class="wish-message" id="wishMessage">🎉 Wish granted. Happy birthday! 🎉</p>
+  </section>
+
+</div>
+
+<p class="footer-note" id="footerNote" hidden>made just for you</p>
+
+<audio id="bgMusic" loop></audio>
+
+<script src="/card.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap');
+
+/* Each theme sets CSS variables consumed by card.css.
+   --particle is the emoji drifting in the background. */
+
+.theme-bubblegum {
+  --bg-a: #ffd6ea;
+  --bg-b: #d9c8f5;
+  --ink: #4a2e45;
+  --accent: #ff5c9a;
+  --accent-soft: #ffe1ee;
+  --card-bg: #fffaff;
+  --particle: '💗';
+}
+
+.theme-sunset {
+  --bg-a: #ffb08a;
+  --bg-b: #ffe08a;
+  --ink: #5a3421;
+  --accent: #ff7a3d;
+  --accent-soft: #fff0dd;
+  --card-bg: #fffaf3;
+  --particle: '✨';
+}
+
+.theme-galaxy {
+  --bg-a: #201a4a;
+  --bg-b: #4a3a8f;
+  --ink: #f3efff;
+  --accent: #ffcf5c;
+  --accent-soft: #2c2460;
+  --card-bg: #251f52;
+  --particle: '⭐';
+}
+
+.theme-garden {
+  --bg-a: #cfe6c3;
+  --bg-b: #f6efd8;
+  --ink: #3c4a2e;
+  --accent: #7fae5e;
+  --accent-soft: #eef6e4;
+  --card-bg: #fffef8;
+  --particle: '🌿';
+}
+
+.theme-garden .handwritten-message {
+  font-family: 'Caveat', cursive;
+  font-size: 28px;
+}
